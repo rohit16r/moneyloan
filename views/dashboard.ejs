@@ -1,0 +1,112 @@
+<%- include('partials/header', { title: 'Dashboard - QuickLoan' }) %>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h2>Welcome, <%= user.name %>!</h2>
+            <p class="text-muted">Here's your loan application summary</p>
+        </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="row mt-4">
+        <div class="col-md-3 mb-4">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5>Total Loans</h5>
+                    <h3><%= loans.length %></h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5>Approved</h5>
+                    <h3><%= loans.filter(l => l.status === 'approved').length %></h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <h5>Pending</h5>
+                    <h3><%= loans.filter(l => l.status === 'pending').length %></h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <h5>Quick Actions</h5>
+                    <a href="/loans/apply" class="btn btn-light btn-sm">Apply Loan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loan Applications -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Your Loan Applications</h5>
+                    <a href="/loans/apply" class="btn btn-primary btn-sm">Apply for New Loan</a>
+                </div>
+                <div class="card-body">
+                    <% if (error) { %>
+                        <div class="alert alert-danger"><%= error %></div>
+                    <% } %>
+                    
+                    <% if (loans.length === 0) { %>
+                        <div class="text-center py-4">
+                            <p class="text-muted">You haven't applied for any loans yet.</p>
+                            <a href="/loans/apply" class="btn btn-primary">Apply for Your First Loan</a>
+                        </div>
+                    <% } else { %>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Loan ID</th>
+                                        <th>Amount</th>
+                                        <th>Purpose</th>
+                                        <th>EMI</th>
+                                        <th>Tenure</th>
+                                        <th>Status</th>
+                                        <th>Applied Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% loans.forEach(loan => { %>
+                                    <tr>
+                                        <td>#<%= loan._id.toString().slice(-6) %></td>
+                                        <td>₹<%= loan.amount.toLocaleString() %></td>
+                                        <td><%= loan.purpose %></td>
+                                        <td>₹<%= loan.emi.toLocaleString() %></td>
+                                        <td><%= loan.tenure %> months</td>
+                                        <td>
+                                            <span class="badge bg-<%= 
+                                                loan.status === 'approved' ? 'success' : 
+                                                loan.status === 'rejected' ? 'danger' : 
+                                                loan.status === 'disbursed' ? 'info' : 'warning' %>">
+                                                <%= loan.status.charAt(0).toUpperCase() + loan.status.slice(1) %>
+                                            </span>
+                                        </td>
+                                        <td><%= loan.appliedDate.toLocaleDateString() %></td>
+                                        <td>
+                                            <a href="/loans/<%= loan._id %>" class="btn btn-sm btn-outline-primary">View</a>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

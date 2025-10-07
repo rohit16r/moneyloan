@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureFunds - Your Trusted Loan Partner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+  
+
+    <%-include("partials/header.ejs")  %>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Get The Financial Support You Need Today</h1>
+                    <p>Quick approval, competitive rates, and flexible repayment options for personal and business loans.</p>
+                    <div class="hero-buttons">
+                        <a href="/applynow" class="btn">Apply for Loan</a>
+                        <a href="#" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Financial Planning">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose SecureFunds</h2>
+                <p>We provide financial solutions that are tailored to your unique needs and circumstances.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Quick Approval</h3>
+                    <p>Get your loan approved in as little as 24 hours with our streamlined application process.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>Competitive Rates</h3>
+                    <p>Enjoy some of the most competitive interest rates in the industry with no hidden fees.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure & Safe</h3>
+                    <p>Your financial information is protected with bank-level security and encryption.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Calculator -->
+    <section class="section" style="background-color: #f1f5f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Loan Calculator</h2>
+                <p>Estimate your monthly payments with our easy-to-use loan calculator.</p>
+            </div>
+            
+            <div class="calculator">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="loan-amount">Loan Amount (₹)</label>
+                        <input type="number" id="loan-amount" value="10000" min="1000" max="100000" step="1000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loan-term">Loan Term (Months)</label>
+                        <select id="loan-term">
+                            <option value="12">12 Months</option>
+                            <option value="24" selected>24 Months</option>
+                            <option value="36">36 Months</option>
+                            <option value="48">48 Months</option>
+                            <option value="60">60 Months</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest-rate">Interest Rate (%)</label>
+                        <input type="number" id="interest-rate" value="5.5" min="3" max="15" step="0.1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loan-type">Loan Type</label>
+                        <select id="loan-type">
+                            <option value="personal">Personal Loan</option>
+                            <option value="business">Business Loan</option>
+                            <option value="mortgage">Mortgage</option>
+                            <option value="auto">Auto Loan</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="calculator-result">
+                    <h3>Estimated Monthly Payment</h3>
+                    <div class="monthly-payment" id="monthly-payment">₹440.96</div>
+                    <p>Total payable: <span id="total-payable">₹10,583.04</span></p>
+                    <p>Total interest: <span id="total-interest">₹583.04</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Hear from people who have transformed their financial situation with our help.</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "SecureFunds helped me get a personal loan when no other lender would approve me. The process was simple and the customer service was exceptional."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JS</div>
+                        <div class="author-info">
+                            <h4>John Smith</h4>
+                            <p>Small Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "I needed funds quickly for a home renovation, and SecureFunds delivered. The competitive rates made it affordable, and the online application was a breeze."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MJ</div>
+                        <div class="author-info">
+                            <h4>Maria Johnson</h4>
+                            <p>Homeowner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "As a first-time borrower, I was nervous about the process. The team at SecureFunds guided me through every step and answered all my questions patiently."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RD</div>
+                        <div class="author-info">
+                            <h4>Robert Davis</h4>
+                            <p>Recent Graduate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <%-include("partials/footer.ejs")  %>
+
+
+    <script src="/js/script.js">
+        
+    </script>
+
+</body>
+</html>
