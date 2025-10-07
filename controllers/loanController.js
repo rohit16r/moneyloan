@@ -10,7 +10,7 @@ const userLogincontroller = async (req, res) => {
       return res.send(`
         <script>
           alert("❌ User not found");
-          window.location.href = "/login";
+          window.location.href = "/home";
         </script>
       `);
     }
